@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parkir</title>
+    <style>
+        table {
+            margin: auto;
+        }
+        input {
+            width: 100px;
+        }
+        td {
+            text-align: center;
+            width: 150px;
+        }
+    </style>
+    <script>
+        var getId = function(id) {return document.getElementById(id)};
+
+        function calculate() {
+            const duration = getId('end').value - getId('start').value;
+            getId('duration').innerHTML = duration + ' Jam';
+
+            if(duration <= 2) {const totalBiaya = 3000; getId('cost').innerHTML = 'Rp. ' + totalBiaya}
+            else {const totalBiaya = 3000 + ((duration-2)*1000); getId('cost').innerHTML = 'Rp. ' + totalBiaya}
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>Parkir O-Matic</legend>
+        <table>
+            <thead>
+                <tr>
+                    <th>Jam Masuk</th>
+                    <th>Jam Keluar</th>
+                    <th>Lama Parkir</th>
+                    <th>Total Biaya Parkir</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="number" id="start" onchange="calculate()"></td>
+                    <td><input type="number" id="end" onchange="calculate()"></td>
+                    <td id="duration"></td>
+                    <td id="cost"></td>
+                </tr>
+            </tbody>
+        </table>
+    </fieldset>
+</body>
+</html>

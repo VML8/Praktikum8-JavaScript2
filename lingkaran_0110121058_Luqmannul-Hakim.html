@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lingkaran</title>
+    <style>
+        input {
+            width: 100px;
+        }
+        fieldset {
+            margin: auto;
+            width: 400px;
+        }
+        table {
+            margin: auto;
+        }
+    </style>
+    <script>
+        var getId = function(id) {return document.getElementById(id)};
+        
+        function radiusByArea() {getId('inputRadius').value = Math.sqrt(getId('inputArea').value / Math.PI)}
+        function radiusByCircumference() {getId('inputRadius').value = getId('inputCircumference').value / Math.PI / 2}
+
+        function areaByRadius() {getId('inputArea').value = Math.PI * (getId('inputRadius').value ** 2)}
+        function circumferenceByRadius() {getId('inputCircumference').value = Math.PI * getId('inputRadius').value * 2}
+
+        function changeRadius() {    
+            areaByRadius();
+            circumferenceByRadius()
+        }
+        function changeArea() {
+            radiusByArea();
+            circumferenceByRadius()
+        }
+        function changeCircumference() {
+            radiusByCircumference();
+            areaByRadius()
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>Lingkaran</legend>
+        <table>
+            <thead>
+                <tr>
+                    <th>Radius</th>
+                    <th>Luas</th>
+                    <th>Keliling</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="number" id="inputRadius" onchange="changeRadius()" value="0"></td>
+                    <td><input type="number" id="inputArea" onchange="changeArea()" value="0"></td>
+                    <td><input type="number" id="inputCircumference" onchange="changeCircumference()" value="0"></td>
+                </tr>
+            </tbody>
+        </table>
+    </fieldset>
+
+</body>
+</html>

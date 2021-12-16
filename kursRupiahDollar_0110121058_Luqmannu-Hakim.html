@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rupiah - Dollar</title>
+    <style>
+        input {
+            width: 150px;
+        }
+        fieldset {
+            margin: auto;
+            width: 400px;
+        }
+        table {
+            margin: auto;
+        }
+        pre {
+            margin:0;
+        }
+    </style>
+    <script>
+        var getId = function(id) {return document.getElementById(id)};
+        const kursIdrDollar = 14650
+
+        function changeRp() {getId('dollar').value = getId('rp').value / kursIdrDollar}
+        function changeDollar() {getId('rp').value = getId('dollar').value * kursIdrDollar}
+    </script>
+</head>
+<body>
+    
+    <fieldset>
+        <legend>IDR to Dollar</legend>
+        <table>
+            <tbody>
+                <tr>
+                    <th>Rupiah</th>
+                    <th>:</th>
+                    <th>Dollar</th>
+                </tr>
+                <tr>
+                    <td><input type="number" id="rp" onchange="changeRp()"></td>
+                    <td>:</td>
+                    <td><input type="number" id="dollar" onchange="changeDollar()"></td>
+                </tr>
+            </tbody>
+        </table>
+        <pre>* 1 Dollar = 14.650 Rupiah</pre>
+    </fieldset>
+
+</body>
+</html>

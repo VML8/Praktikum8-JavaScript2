@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penjumlahan</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            font-size: 48pt;
+        }
+        input {
+            height: 48px;
+        }
+    </style>
+    <script>
+        var getId = function(id) {return document.getElementById(id)};
+
+        function calculate() {
+            const one = getId('one').value;
+            const two = getId('two').value;
+
+            getId('result').value = (one*1) + (two*1);
+        }
+    </script>
+</head>
+<body>
+    <input type="number" id="one" onchange="calculate()">
+    +
+    <input type="number" id="two" onchange="calculate()">
+    =
+    <input type="number" id="result" onchange="calculate()">
+</body>
+</html>
